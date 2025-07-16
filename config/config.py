@@ -27,3 +27,10 @@ def load_languages():
     """ Load supported languages from a JSON file. """
     with open('config/languages.json', 'r') as file:
         return json.load(file)
+    
+def load_ollama_config():
+    """ Load OLLAMA configuration from environment variables or secure storage. """
+    return {
+        'ollama_url': os.getenv('OLLAMA_URL', 'http://localhost:11434'),
+        'ollama_model': os.getenv('OLLAMA_MODEL', 'llama2')
+    }
